@@ -1,0 +1,79 @@
+{
+  "expo": {
+    "name": "OBD2 วินิจฉัยรถ",
+    "slug": "deep2ilent",
+    "owner": "deep2ilenteiei",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "scheme": "elm327thai",
+    "userInterfaceStyle": "dark",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#0A0E1A"
+    },
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.yourname.elm327thaiobd2",
+      "buildNumber": "1",
+      "infoPlist": {
+        "NSBluetoothAlwaysUsageDescription": "แอปนี้ต้องการเข้าถึง Bluetooth เพื่อเชื่อมต่อกับอุปกรณ์ ELM327 OBD2 สำหรับวินิจฉัยรถยนต์",
+        "NSBluetoothPeripheralUsageDescription": "แอปนี้ต้องการเข้าถึง Bluetooth เพื่อเชื่อมต่อกับอุปกรณ์ ELM327 OBD2 สำหรับวินิจฉัยรถยนต์",
+        "UIBackgroundModes": ["bluetooth-central"],
+        "NSLocationWhenInUseUsageDescription": "แอปนี้ใช้ตำแหน่งที่ตั้งเพื่อสแกนอุปกรณ์ Bluetooth",
+        "ITSAppUsesNonExemptEncryption": false
+      },
+      "entitlements": {
+        "com.apple.developer.bluetooth.background-modes": ["bluetooth-central"]
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#0A0E1A"
+      },
+      "permissions": [
+        "android.permission.BLUETOOTH",
+        "android.permission.BLUETOOTH_ADMIN",
+        "android.permission.BLUETOOTH_CONNECT",
+        "android.permission.BLUETOOTH_SCAN",
+        "android.permission.ACCESS_FINE_LOCATION"
+      ]
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "static",
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-font",
+      [
+        "react-native-ble-plx",
+        {
+          "isBackgroundEnabled": true,
+          "modes": ["peripheral", "central"],
+          "bluetoothAlwaysPermission": "แอปนี้ต้องการ Bluetooth เพื่อเชื่อมต่อ ELM327"
+        }
+      ],
+      [
+        "expo-build-properties",
+        {
+          "ios": {
+            "deploymentTarget": "16.4",
+            "useFrameworks": "static"
+          }
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true
+    },
+    "extra": {
+      "eas": {
+        "projectId": "29052ff6-314a-4b94-a5f7-1f71826772e8"
+      }
+    }
+  }
+}
